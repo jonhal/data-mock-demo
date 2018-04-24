@@ -1,0 +1,21 @@
+h1 {
+  font-size: 30px;
+  text-align: center;
+}
+.block {
+  font-size: 20px;
+  margin-bottom: 15px;
+  div {
+    margin: 10px;
+  }
+  button {
+    padding: 5px 10px;
+    background: black;
+    color: white;
+    margin-left: 30px;
+  }
+  .resTxt {
+    color: red;
+    margin-left: 20px;
+  }
+}
