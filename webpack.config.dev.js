@@ -14,5 +14,5 @@ module.exports = merge(webpackCommonConfig, {
 	devtool: "source-map",
 	devServer: {
 		hot: true,
-	}
+		host: '0.0.0.0'
 });

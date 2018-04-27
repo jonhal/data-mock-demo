@@ -43,5 +43,6 @@ module.exports = {
 		port,
 		historyApiFallback: true,
 		publicPath: '/dist/',
+		host: '0.0.0.0'
 	}
 }

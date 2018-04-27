@@ -17,6 +17,7 @@ module.exports = merge(webpackCommonConfig, {
 	devtool: "source-map",
 	devServer: {
 		compress: true,
+		host: '0.0.0.0',
 		proxy: {
 			'/cf024bb815a93131ce9fed91b1f9dafa43a3c557e9be66e66fd76df5c64f10fe/api': {
 				target: "http://localhost:8000",
