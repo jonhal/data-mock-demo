@@ -4,6 +4,7 @@ class Home extends React.Component {
 
 
   sendGetRequest(url, index) {
+    url = 'http://172.18.18.76:8000/9988113' + url;
     fetch(url,{
       method:"GET"
     })
@@ -50,6 +51,7 @@ class Home extends React.Component {
   }
 
   postData (url, data) {
+    url = 'http://172.18.18.76:8000/9988113/initdataformock/api' + url;
     // Default options are marked with *
     return fetch(url, {
       body: JSON.stringify(data), // must match 'Content-Type' header
@@ -89,15 +91,15 @@ class Home extends React.Component {
         </div>
         <div>获取数据: </div>
         <div class="block">
-          <div>link: "a/ba/cc" <button onClick ={()=>this.sendGetRequest('/cf024bb815a93131ce9fed91b1f9dafa43a3c557e9be66e66fd76df5c64f10fe/api/a/ba/cc', 1)} >send</button></div>
+          <div>link: "a/ba/cc" <button onClick ={()=>this.sendGetRequest('/api/a/ba/cc', 1)} >send</button></div>
           <div>response: <b className="resTxt">{this.state.res1}</b></div>
         </div>
         <div class="block">
-          <div>link: "/b" <button  onClick ={()=>this.sendGetRequest('/cf024bb815a93131ce9fed91b1f9dafa43a3c557e9be66e66fd76df5c64f10fe/api/b', 2)} >send</button></div>
+          <div>link: "/b" <button  onClick ={()=>this.sendGetRequest('/api/b', 2)} >send</button></div>
           <div>response: <b className="resTxt">{this.state.res2}</b></div>
         </div>
         <div class="block">
-          <div>link: "/c" <button  onClick ={()=>this.sendGetRequest('/cf024bb815a93131ce9fed91b1f9dafa43a3c557e9be66e66fd76df5c64f10fe/api/c', 3)} >send</button></div>
+          <div>link: "/c" <button  onClick ={()=>this.sendGetRequest('/api/c', 3)} >send</button></div>
           <div>response: <b className="resTxt">{this.state.res3}</b></div>
         </div>
       </div>

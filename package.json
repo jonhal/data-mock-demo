@@ -8,7 +8,7 @@
     "build": "./node_modules/.bin/webpack --config webpack.config.dev.js",
     "build:production": "./node_modules/.bin/webpack --config webpack.config.production.js",
     "start": "npm run sendMock & webpack-dev-server --config webpack.config.production.js",
-    "sendMock": "dataMockSend --path=./mock --serverUrl=http://localhost:8000/cf024bb815a93131ce9fed91b1f9dafa43a3c557e9be66e66fd76df5c64f10fe"
+    "sendMock": "dataMockSend --path=./mock --serverUrl=http://localhost:8000"
   },
   "homepage": "https://github.com/temilaj/react-webpack-starter",
   "repository": "https://github.com/temilaj/react-webpack-starter.git",
