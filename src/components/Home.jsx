@@ -1,10 +1,8 @@
 import React from 'react';
 
 class Home extends React.Component {
-
-
   sendGetRequest(url, index) {
-    url = 'http://172.18.18.76:8000/9988113' + url;
+    url = 'http://172.18.18.76:8000/' + this.state.timestamp + url;
     fetch(url,{
       method:"GET"
     })
@@ -26,8 +24,16 @@ class Home extends React.Component {
     this.state = {
       res1: '',
       res2: '',
-      res3: ''
+      res3: '',
+      timestamp: ''
     }
+  }
+
+  makeTimeStamp(value) {
+    value = value || Date.parse(new Date());
+    this.setState({
+      timestamp: value
+    })
   }
 
   componentDidMount () {
@@ -51,7 +57,7 @@ class Home extends React.Component {
   }
 
   postData (url, data) {
-    url = 'http://172.18.18.76:8000/9988113/initdataformock/api' + url;
+    url = `http://172.18.18.76:8000/${this.state.timestamp}/initdataformock/api${url}`;
     // Default options are marked with *
     return fetch(url, {
       body: JSON.stringify(data), // must match 'Content-Type' header
@@ -82,12 +88,26 @@ class Home extends React.Component {
   render () {
     return (
       <div className="body">
-        <h1>Link tests</h1>
+        <h1>数据模拟平台</h1>
         <div class="block">
           <div>配置数据: </div>
           <div>url: <input type="text" value={this.state.setUrl} onChange={e => this.setUrlChange(e.target.value)} style={{"width":"500px","height":"20px","margin-bottom":"15px"}}/><br/>
                data: <input type="text" value={this.state.setData} onChange={e => this.setDataChange(e.target.value)} style={{"width":"500px","height":"20px"}}/>
                <button onClick ={()=>this.sendPostRequest()} >send</button></div>
+        </div>
+        <div class="block">
+          <div>随机生成项目id号: </div>
+          <div>
+              <input type="text" value={this.state.timestamp} style={{"width":"500px","height":"20px"}}/>
+              <button onClick ={e=>this.makeTimeStamp(e.target.value)} >生成</button>
+          </div>
+        </div>
+        <div class="block">
+          <div>配置项目id号(模拟数据需要重复使用，需要记住id号，下次配置): </div>
+          <div>
+              <input type="text" value={this.state.timestamp} onChange = {e => this.setState({"timestamp":e.target.value})} style={{"width":"500px","height":"20px"}}/>
+              <button onClick ={()=>this.setTimeStamp()} >配置</button>
+          </div>
         </div>
         <div>获取数据: </div>
         <div class="block">
